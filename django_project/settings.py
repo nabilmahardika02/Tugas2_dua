@@ -41,7 +41,7 @@ if not PRODUCTION:
     ALLOWED_HOSTS += ['.localhost', '127.0.0.1', '[::1]']
 
 # For CSRF origin check verification
-CSRF_TRUSTED_ORIGINS = [f'{APP_NAME}.up.railway.app']
+#CSRF_TRUSTED_ORIGINS = [f'{APP_NAME}.up.railway.app']
 
 # Application definition
 
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'study_tracker',
 ]
 
 MIDDLEWARE = [
