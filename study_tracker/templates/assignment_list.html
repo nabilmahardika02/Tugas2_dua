@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h5>Nama Tugas: </h5>
-  <b>{{ assignment.name }}</b>
+  <h5>Nama: </h5>
+  <b>Nabil</b>
 
   <table>
     <tr>
+      <th>Nama Tugas</th>
       <th>Mata Kuliah</th>
       <th>Tenggat Waktu</th>
       <th>Progress</th>
@@ -13,6 +14,7 @@
     </tr>
     {% for assignment in assignment_list %}
       <tr>
+        <td>{{ assignment.name }}</td>
         <td>{{ assignment.subject }}</td>
         <td>{{ assignment.date }}</td>
         <td>{{ assignment.progress }}</td>
@@ -20,5 +22,17 @@
       </tr>
     {% endfor %}
   </table>
+
+  ...
+</table>
+
+<br>
+<a href="{% url 'study_tracker:create_assignment' %}">
+    <button>
+        Tugas Baru
+    </button>
+</a>
+...
+
 
 {% endblock content %}
