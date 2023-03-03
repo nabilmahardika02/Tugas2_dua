@@ -65,13 +65,13 @@ source: w3schools.com
 //Jelaskan kenapa menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web 
 berbasis Django tanpa menggunakan virtual environment?
 
-    Virtual Environment memungkinkan kita untuk memiliki lingkungan yang stabil, reproducible, 
+Virtual Environment memungkinkan kita untuk memiliki lingkungan yang stabil, reproducible, 
 dan portabel. Kita dapat mengendalikan versi paket mana yang diinstal dan kapan paket tersebut 
 di-upgrade. Kita juga dapat memiliki venv sebanyak yang kita inginkan. Dengan kata lain, 
 virtual environment membantu kita untuk mengisolasi proyek, sehingga perubahan terhadap 
 versi paket instalasi dapat diatur dan tidak mempengaruhi proyek lainnya.
 
-    Sebenarnya, kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan 
+Sebenarnya, kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan 
 virtual environment. Namun, jika kita mengunduh versi paket instalasi terbaru, 
 setiap update akan terinstalasi secara default ke global environment, yang akan mempengaruhi 
 seluruh proyek. Ini tentunya menjadi masalah karena tiap proyek belum tentu membutuhkan 
