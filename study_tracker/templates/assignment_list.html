@@ -12,6 +12,7 @@
       <th>Progress</th>
       <th>Deskripsi</th>
     </tr>
+    
     {% for assignment in assignment_list %}
       <tr>
         <td>{{ assignment.name }}</td>
@@ -22,9 +23,9 @@
       </tr>
     {% endfor %}
   </table>
-
-  ...
 </table>
+
+<h5>Sesi terakhir login: {{ last_login }}</h5>
 
 <br>
 <a href="{% url 'study_tracker:create_assignment' %}">
@@ -32,7 +33,12 @@
         Tugas Baru
     </button>
 </a>
-...
+<a href="{% url 'study_tracker:logout' %}">
+    <button>
+        Logout
+    </button>
+</a>
+
 
 
 {% endblock content %}

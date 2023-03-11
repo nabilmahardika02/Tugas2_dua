@@ -1,3 +1,57 @@
+TUGAS 4:
+//Apa kegunaan {% csrf_token %} pada elemen <form>? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen <form>?
+Pada elemen <form>, {% csrf_token %} berfungsi untuk membuat dan meng-input token keamanan  CSRF (Cross-Site Request Forgery) ke dalam form HTML. Token keamanan CSRF tersebut bertujuan untuk mencegah serangan CSRF: jenis serangan web dalam bentuk manipulasi tindakan pengguna terautentikasi tanpa sepengetahuan atau persetujuannya.
+Django akan menolak permintaan POST yang dikirimkan oleh pengguna apabila <form> tidak terdapat {% csrf_token %}. Alasannya, pada setiap permintaan POST yang diterima, eksistensi token CSRF akan diperiksa oleh Django, secara default. Django akan menganggap permintaan tersebut tidak valid dan menolak untuk memprosesnya, apabila token tidak ada atau tidak cocok.
+
+//Apakah kita dapat membuat elemen <form> secara manual (tanpa menggunakan generator seperti {{ form.as_table }})? Jelaskan secara gambaran besar bagaimana cara membuat <form> secara manual.
+Kita dapat membuat elemen <form> secara manual. Caranya, kita perlu membuat sebuah class form di dalam file forms.py, mengatur field-field dan argumen-argumen untuk setiap field, mengimport form tersebut ke dalam view, dan menampilkan form di dalam template dengan tag-tag yang sesuai.
+
+//Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
+1. Pengguna mengisi HTML form yang telah disediakan oleh website, dan menekan tombol submit.
+2. Browser mengirimkan data form tersebut ke server melalui HTTP POST request.
+3. Server menerima request tersebut dan menjalankan view yang telah diatur untuk form tersebut.
+4. View melakukan validasi data form untuk memastikan bahwa data yang dimasukkan pengguna sesuai dengan aturan yang telah ditentukan. Jika terdapat kesalahan, view akan menampilkan kembali form dengan pesan error yang sesuai.
+5. Jika data form valid, view akan menyimpan data tersebut ke dalam database dengan menggunakan model yang telah diatur sebelumnya.
+6. Setelah data berhasil disimpan ke dalam database, view akan meredirect pengguna ke halaman sukses atau menampilkan data yang telah disimpan pada halaman yang sesuai.
+7. Pada halaman yang sesuai, view akan menampilkan data yang telah disimpan pada template HTML dengan menggunakan tag-tag yang sesuai seperti `{% for %}` atau `{{ }}`.
+
+//Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+1. Membuka study_tracker/views.py
+2. Menambahkan import redirect, UserCreationForm, dan messages
+3. Membuat fungsi bernama register yang menerima parameter request, yang berisi kode untuk menghasilkan formulir registrasi secara otomatis {{ UserCreationForm(request.POST) }} dan menghasilkan akun pengguna ketika data di-submit dari form [form.save()]
+4. Membuat file register.html pada folder study_tracker/templates untuk membuat halaman register
+5. Membuat form dengan generator {{ form.as_table }}
+6. Membuka study_tracker/urls.py
+7. Mengimpor fungsi register dan menambahkan path-nya pada urls.py
+
+8. Membuka study_tracker/views.py
+9. Menambahkan import authenticate dan login
+10. Membuat fungsi bernama login_user yang menerima parameter request, yang berisi kode untuk mengautentikasi pengguna yang ingin login
+11. Membuat file login.html pada folder study_tracker/templates untuk membuat halaman login
+12. Membuka study_tracker/urls.py
+13. Mengimpor fungsi login_user dan menambahkan path-nya pada urls.py
+14. Memoodifikasi variable name pada context dalam fungsi show_tracker yang berada pada study_tracker/views.py menjadi {{'name': request.user.username}} agar dapat menampilkan nama sesuai pengguna yang logged in.
+
+15. Membuka study_tracker/views.py
+16. Menambahkan import logout
+17. Membuat fungsi bernama logout_user yang menerima parameter request, yang berisi kode untuk melakukan mekanisme logout
+18. Membuka study_tracker/templates/assignment_list.html 
+19. Menambahkan kode pada assignment_list.html untuk menambah tombol logout
+20. Membuka study_tracker/urls.py
+21. Mengimpor fungsi logout_user dan menambahkan path-nya pada urls.py
+
+22. Membuka study_tracker/views.py
+23. Menambahkan import login_required
+24. Menambahkan kode {{ @login_required(login_url='/money_tracker/login/') }} di atas fungsi show_tracker agar halaman money tracker hanya dapat diakses oleh pengguna yang sudah login (terautentikasi).
+
+25. Membuka study_tracker/views.py
+26. Menambahkan import HttpResponseRedirect, reverse, dan datetime
+27. Pada fungsi login_user, menambahkan fungsi untuk menambahkan cookie yang bernama last_login untuk melihat kapan terakhir kali pengguna melakukan login. 
+28. Pada fungsi show_tracker, menambahkan potongan kode {{ 'last_login': request.COOKIES['last_login'] }} ke dalam variabel context, untuk menambahkan variabel yang nantinya memunculkan waktu terakhir login
+29. Mengubah fungsi logout_user untuk menambahkan mekanisme penghapusan cookie last_login saat pengguna melakukan logout.
+30. Membuka berkas tracker.html dan menambahkan potongan kode {{ <h5>Sesi terakhir login: {{ last_login }}</h5> }} di antara tabel dan line break tag untuk menampilkan data last login.
+
+
 TUGAS 3:
 //Apakah kita dapat menginput data selain melalui form? Namun mengapa form dapat dikatakan lebih baik daripada menggunakan cara tersebut?
 
