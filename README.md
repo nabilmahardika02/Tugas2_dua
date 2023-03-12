@@ -44,13 +44,6 @@ Kita dapat membuat elemen form secara manual. Caranya, kita perlu membuat sebuah
 23. Menambahkan import login_required
 24. Menambahkan kode {{ @login_required(login_url='/money_tracker/login/') }} di atas fungsi show_tracker agar halaman money tracker hanya dapat diakses oleh pengguna yang sudah login (terautentikasi).
 
-25. Membuka study_tracker/views.py
-26. Menambahkan import HttpResponseRedirect, reverse, dan datetime
-27. Pada fungsi login_user, menambahkan fungsi untuk menambahkan cookie yang bernama last_login untuk melihat kapan terakhir kali pengguna melakukan login. 
-28. Pada fungsi show_tracker, menambahkan potongan kode {{ 'last_login': request.COOKIES['last_login'] }} ke dalam variabel context, untuk menambahkan variabel yang nantinya memunculkan waktu terakhir login
-29. Mengubah fungsi logout_user untuk menambahkan mekanisme penghapusan cookie last_login saat pengguna melakukan logout.
-30. Membuka berkas tracker.html dan menambahkan potongan kode {{ Sesi terakhir login: {{ last_login }} }} di antara tabel dan line break tag untuk menampilkan data last login.
-
 
 TUGAS 3:
 //Apakah kita dapat menginput data selain melalui form? Namun mengapa form dapat dikatakan lebih baik daripada menggunakan cara tersebut?
