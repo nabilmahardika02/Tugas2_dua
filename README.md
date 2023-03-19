@@ -35,8 +35,20 @@ Kekurangan:
 - Halaman login
 1. Membuat divisi dengan kelas "container-fluid" dan memasukkan table login
 2. Membuat inline CSS dengan class selector "login" untuk mengatur maksimal panjang, margin, dan font
-3. Membuat divisi dengan kelas "login" persis di bawah divsi "container-fluid"
-4. 
+3. Membuat divisi dengan kelas "login" persis di bawah divisi "container-fluid"
+4. Membuat inline CSS dengan class selector "center" untuk mengatur letak text & margin persis di tengah
+5. Mengimplementasikan selector "center" pada header dan table
+6. Membuat inline CSS dengan class selector "margin-top" untuk mengatur margin atas
+7. Mengimplementasikan selector "margin-top" pada tiap <td>
+8. Membuat inline CSS dengan class selector "btn" untuk mengatur panjang tombol
+9. Mengimplementasikan selector "btn" pada button
+- Halaman Register: Kurang lebih sama dengan halaman login
+- Halaman Add: 
+10. Menambahkan navbar yang sama dengan halaman tracker
+11. Membuat divisi dengan kelas "container-fluid" dan memasukkan elemen-lemen input
+11. Membuat inline CSS dengan class selector "navbar-brand" untuk mengatur letak navbar brand persis di tengah dan mengimplementasikannya
+12. Membuat inline CSS dengan class selector "add" untuk mengatur container "add"
+13. Membuat inline CSS dengan class selector "input" untuk mengubah bidang input menjadi transparan dan mengimplementasikannya
 
 
 TUGAS 4:
