@@ -49,7 +49,15 @@ Kekurangan:
 11. Membuat inline CSS dengan class selector "navbar-brand" untuk mengatur letak navbar brand persis di tengah dan mengimplementasikannya
 12. Membuat inline CSS dengan class selector "add" untuk mengatur container "add"
 13. Membuat inline CSS dengan class selector "input" untuk mengubah bidang input menjadi transparan dan mengimplementasikannya
-
+14. Membuat inline CSS dengan class selector "label" untuk mengatur margin kanan dari tiap label
+15. Membuat inline CSS dengan class selector "background" untuk mengatur warna latar belakang dari container
+16. Membuat inline CSS dengan class selector "save" untuk mengatur panjang tombol "save"
+17. Membuat inline CSS dengan class selector "center" untuk mengatur letak text & margin persis di tengah dan mengimplementasikannya
+- Cards
+18. Meng-import JsonResponse dan csrf_exempt pada views.py untuk menampilkan cards pada data json yang telah didapatkan, dan memimplementasikan keamanan pada form create_assignment
+19. Membuat fungsi create_assignment_ajax untuk mengimplementasikan create_assignment, menyimpan data tersebut, dan menampilkannya, dengan menggunakan ajax
+20. Melalukan routing fungsi baru pada urls.py
+21. Menambahkan "script" dan kode js ajax pada tracker.html untuk menampilkan data dalam bentuk cards dan menampilkan modal tambah transaksi
 
 TUGAS 4:
 //Apa kegunaan {% csrf_token %} pada elemen form? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen form?
