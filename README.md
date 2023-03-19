@@ -1,3 +1,44 @@
+TUGAS 5:
+//Apa perbedaan dari inline, internal, dan external CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
+1. Inline CSS adalah gaya CSS yang didefinisikan langsung pada elemen HTML menggunakan atribut style.
+Kelebihan:
+- Mudah diimplementasikan dan dapat diubah secara langsung pada elemen HTML yang bersangkutan.
+- Sangat efisien jika hanya ada satu atau dua elemen yang perlu diubah gayanya.
+Kekurangan:
+- Tidak efisien untuk digunakan pada banyak elemen, karena kode inline akan meningkatkan ukuran file HTML dan membuat kode HTML terlihat lebih berantakan.
+
+2. Internal CSS adalah gaya CSS yang didefinisikan pada tag head halaman web menggunakan tag <style>.
+Kelebihan:
+- Mudah diimplementasikan dan dikelola dalam satu halaman web.
+- Dapat digunakan pada beberapa elemen pada halaman web.
+Kekurangan:
+- Tidak efisien jika digunakan pada banyak halaman web, karena kode CSS harus didefinisikan di setiap halaman web secara manual.
+
+3. External CSS adalah gaya CSS yang didefinisikan dalam file terpisah dan dihubungkan dengan halaman web menggunakan tag <link>.
+Kelebihan: 
+- Efisien untuk digunakan pada banyak halaman web, karena kode CSS hanya perlu didefinisikan sekali dan dapat digunakan pada semua halaman web.
+- Mudah dikelola dan dapat diubah dengan mudah.
+Kekurangan:
+- Memerlukan waktu lebih lama untuk memuat file CSS eksternal, terutama jika file tersebut besar.
+
+//Jelaskan tag HTML5 yang kamu ketahui.
+1. <input> merupakan tag yang menentukan bidang input tempat pengguna dapat memasukkan data.
+2. <br> merupakan tag yang menyisipkan satu jeda baris.
+3. <div> merupakan tag yang mendefinisikan divisi atau bagian dalam dokumen HTML.
+
+//Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+1. Element Selector, yakni selector yang memilih elemen HTML berdasarkan nama tag-nya (elemen).
+2. Class Selector, yakni selector yang memilih elemen HTML berdasarkan nilai atribut class-nya. Dalam HTML, class digunakan untuk memberi nama kelas tertentu pada satu atau beberapa elemen. 
+3. ID Selector, yakni selector yang memilih elemen HTML berdasarkan nilai atribut id-nya. Dalam HTML, id digunakan untuk memberi identitas unik pada satu elemen.
+
+//Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+- Halaman login
+1. Membuat divisi dengan kelas "container-fluid" dan memasukkan table login
+2. Membuat inline CSS dengan class selector "login" untuk mengatur maksimal panjang, margin, dan font
+3. Membuat divisi dengan kelas "login" persis di bawah divsi "container-fluid"
+4. 
+
+
 TUGAS 4:
 //Apa kegunaan {% csrf_token %} pada elemen form? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen form?
 Pada elemen form, {% csrf_token %} berfungsi untuk membuat dan meng-input token keamanan  CSRF (Cross-Site Request Forgery) ke dalam form HTML. Token keamanan CSRF tersebut bertujuan untuk mencegah serangan CSRF: jenis serangan web dalam bentuk manipulasi tindakan pengguna terautentikasi tanpa sepengetahuan atau persetujuannya.

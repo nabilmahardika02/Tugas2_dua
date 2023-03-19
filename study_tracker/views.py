@@ -12,6 +12,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 import datetime
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 
 
@@ -19,15 +21,41 @@ import datetime
 # Create your views here.
 @login_required(login_url='/study_tracker/login/')
 def show_tracker(request):
-    transaction_data = Assignment.objects.all()
+    assignment_data = Assignment.objects.all()
     context = {
-    'assignment_list': transaction_data,
+    'list_of_assignments': assignment_data,
     'name': request.user.username,
     'last_login': request.COOKIES['last_login'],
 
 }
 
-    return render(request, "assignment_list.html", context)
+    return render(request, "tracker.html", context)
+
+
+
+@csrf_exempt
+def create_assignment_ajax(request):  
+    # create object of form
+    form = AssignmentForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        data = Assignment.objects.last()
+
+        # parsing the form data into json
+        result = {
+            'id':data.id,
+            'name':data.name,
+            'subject':data.subject,
+            'date':data.date,
+            'progress':data.progress,
+            'description':data.description,
+        }
+        return JsonResponse(result)
+
+    context = {'form': form}
+    return render(request, "create_assignment.html", context)
+
 
 def create_assignment(request):
     form = AssignmentForm(request.POST or None)
@@ -65,7 +93,7 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Akun telah berhasil dibuat!')
+            messages.success(request, 'Your account has been successfully created!')
             return redirect('study_tracker:login')
 
     context = {'form':form}
@@ -82,7 +110,7 @@ def login_user(request):
             response.set_cookie('last_login', str(datetime.datetime.now()))
             return response
         else:
-            messages.info(request, 'Username atau Password salah!')
+            messages.info(request, 'Wrong username or password!')
     context = {}
     return render(request, 'login.html', context)
 
@@ -91,5 +119,31 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('study_tracker:login'))
     response.delete_cookie('last_login')
     return response
+
+def modify_assignment(request, id):
+    # Get data berdasarkan ID
+    task = Assignment.objects.get(pk = id)
+
+    # Set instance pada form dengan data dari task
+    form = AssignmentForm(request.POST or None, instance=task)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('study_tracker:show_tracker'))
+
+    context = {'form': form}
+    return render(request, "modify_assignment.html", context)
+
+def delete_assignment(request, id):
+    # Get data berdasarkan ID
+    transaction = Assignment.objects.get(pk = id)
+    # Hapus data
+    transaction.delete()
+    # Kembali ke halaman awal
+    return HttpResponseRedirect(reverse('study_tracker:show_tracker'))
+
+
+
 
 

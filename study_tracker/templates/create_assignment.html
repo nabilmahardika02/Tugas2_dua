@@ -3,20 +3,72 @@
 {% load static %}
 
 {% block content %}
+<style>
+ .register {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+ .input {
+    background: transparent;
+    border: none;
+}
+.label {
+    margin-right: 10px;
+}
+.center {
+    text-align: center;
+    margin: 0 auto;
 
-<h1>Tambah Assignment Baru</h1>
+    }
+.background {
+    background-color:#F8F9FA;
+  }
+.save {
+        margin-top: 3px;
+        margin-bottom: 5px;
+  }
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  }
+</style>
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Tambah"/>
-            </td>
-        </tr>
-    </table>
-</form>
+<nav class="navbar navbar-expand-lg navbar bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand mb-0 h1">Study Tracker</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <form class="d-flex" role="logout">
+        <a class="btn navbar-light btn-light logout" href="{% url 'study_tracker:logout' %}">Log out</a>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="register">
+      <h1 class="center">New Assignment</h1>
+      <br>
+      <div class="container-fluid background">
+          <form method="POST">
+              {% csrf_token %}
+              <h3><input type="text" name="name"  placeholder="Untitled" class="input"></h3>
+              <label class="label"> Subject </label>
+              <input type="text" name="subject" placeholder="PBP" class="input"> </td>
+              <br>
+              <label class="label"> Progress </label>
+              <input type="number" name="progress" maxlength="1" placeholder="1" class="input"> </td>
+              <br>
+              <label class="label"> Description: </label>
+              <textarea name="description" rows="5" cols="55" placeholder="desc"> </textarea>
+              <div class="center save"><input type="submit" class="btn btn-primary" value="Save">
+              <br>
+          </form>
+      </div>
+  </div>
+</div>
 
 {% endblock %}
