@@ -1,5 +1,5 @@
 ## TUGAS 6:
-#### Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+### Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
 Asynchronus programming merupakan sebuah arsitektur non-pemblokiran: satu tugas tidak bergantung pada tugas lainnya. Dengan kata lain, beberapa tugas dapat berjalan secara bersamaan. Synchronus programming merupakan sebuah arsitektur pemblokiran: pelaksanaan setiap operasi bergantung pada penyelesaian operasi sebelumnya. Dengan kata lain, setiap tugas membutuhkan jawaban sebelum melanjutkan ke iterasi berikutnya.
 Perbedaan antara asinkron dan sinkron meliputi:
 
