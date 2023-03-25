@@ -7,15 +7,15 @@ Perbedaan antara asinkron dan sinkron meliputi:
 - Asynchronus programming tidak memblokir, yang artinya program akan mengirim banyak permintaan ke server. Synchronus programming memblokir — hanya akan mengirimkan satu permintaan ke server dalam satu waktu dan akan menunggu permintaan tersebut dijawab oleh server.
 - Asynchronus programming meningkatkan completed operations karena beberapa operasi dapat dijalankan secara bersamaan. Synchronus Programming berjalan lebih lambat dan lebih metodis.
 
-#### Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+### Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
 Pemrograman berbasis event atau event-driven programming adalah paradigma pemrograman di mana alur program ditentukan oleh kejadian atau aksi pengguna daripada oleh eksekusi kode secara berurutan. Dalam pemrograman berbasis event, program menunggu event terjadi. Saat event terjadi, program akan meresponsnya dengan mengeksekusi kode tertentu, seperti fungsi atau metode.
 Dalam JavaScript, pemrograman berbasis event sering digunakan dalam pengembangan web untuk menangani interaksi pengguna, seperti klik, gerakan mouse, dan penekanan tombol. Sementara itu, AJAX (Asynchronous JavaScript and XML) juga didasarkan pada pemrograman berbasis event. Dengan AJAX, halaman web dapat memperbarui konten tanpa harus memuat ulang seluruh halaman.
 Pada tugas ini, event-driven programming diterapkan pada fungsi $.get() dan $("submit_btn").click(). Fungsi $get() dipanggil ketika halaman selesai dimuat dan akan dieksekusi saat AJAX berhasil mengambil data dari '/tracker/json'. $("submit_btn").click() ketika tombol "add" pada form modal ditekan dan akan dieksekusi ketika AJAX berhasil menambahkan data tugas baru ke /tracker/create-ajax/.
 
-#### Jelaskan penerapan asynchronous programming pada AJAX.
+### Jelaskan penerapan asynchronous programming pada AJAX.
 Asynchronous programming dapat diterapkan pada AJAX dengan menggunakan teknik AJAX dengan menggunakan callback atau promise. Ini memungkinkan permintaan AJAX untuk dilakukan secara asinkron dan tidak akan menghalangi jalannya kode JavaScript lainnya saat menunggu balasan dari server. Callback adalah sebuah fungsi yang dieksekusi setelah permintaan AJAX selesai dilakukan. Callback biasanya ditentukan sebagai parameter terakhir dalam fungsi XMLHttpRequest. Sedangkan promise adalah objek JavaScript yang merepresentasikan nilai yang belum tersedia pada saat pembuatan promise. Promise akan terpenuhi ketika operasi yang dilakukan asinkron berhasil, dan ditolak ketika operasi tersebut gagal. Keduanya memungkinkan kode JavaScript untuk menjalankan tugas lain saat permintaan AJAX sedang diproses, sehingga membuat aplikasi web lebih responsif dan cepat.
 
-#### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 1. Membuka study_tracker/views.py
 2. Meng-import Jsonresponse dan csrf_exempt
 3. Membuat fungsi baru dengan nama create_assignment_ajax yang menerima parameter request
@@ -32,7 +32,7 @@ Asynchronous programming dapat diterapkan pada AJAX dengan menggunakan teknik AJ
 13. Menambahkan 'data-bs-dismiss="modal"' pada tombol dengan id='"submit_btn"' untuk menutup modal setelah penambahan task telah berhasil dilakukan.
 
 ## TUGAS 5:
-//Apa perbedaan dari inline, internal, dan external CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
+### Apa perbedaan dari inline, internal, dan external CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
 1. Inline CSS adalah gaya CSS yang didefinisikan langsung pada elemen HTML menggunakan atribut style.
 Kelebihan:
 - Mudah diimplementasikan dan dapat diubah secara langsung pada elemen HTML yang bersangkutan.
@@ -54,17 +54,17 @@ Kelebihan:
 Kekurangan:
 - Memerlukan waktu lebih lama untuk memuat file CSS eksternal, terutama jika file tersebut besar.
 
-//Jelaskan tag HTML5 yang kamu ketahui.
+### Jelaskan tag HTML5 yang kamu ketahui.
 1. <input> merupakan tag yang menentukan bidang input tempat pengguna dapat memasukkan data.
 2. <br> merupakan tag yang menyisipkan satu jeda baris.
 3. <div> merupakan tag yang mendefinisikan divisi atau bagian dalam dokumen HTML.
 
-//Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+### Jelaskan tipe-tipe CSS selector yang kamu ketahui.
 1. Element Selector, yakni selector yang memilih elemen HTML berdasarkan nama tag-nya (elemen).
 2. Class Selector, yakni selector yang memilih elemen HTML berdasarkan nilai atribut class-nya. Dalam HTML, class digunakan untuk memberi nama kelas tertentu pada satu atau beberapa elemen. 
 3. ID Selector, yakni selector yang memilih elemen HTML berdasarkan nilai atribut id-nya. Dalam HTML, id digunakan untuk memberi identitas unik pada satu elemen.
 
-//Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 - Halaman login
 1. Membuat divisi dengan kelas "container-fluid" dan memasukkan table login
 2. Membuat inline CSS dengan class selector "login" untuk mengatur maksimal panjang, margin, dan font
@@ -93,14 +93,14 @@ Kekurangan:
 21. Menambahkan "script" dan kode js ajax pada tracker.html untuk menampilkan data dalam bentuk cards dan menampilkan modal tambah transaksi
 
 ## TUGAS 4:
-//Apa kegunaan {% csrf_token %} pada elemen form? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen form?
+### Apa kegunaan {% csrf_token %} pada elemen form? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen form?
 Pada elemen form, {% csrf_token %} berfungsi untuk membuat dan meng-input token keamanan  CSRF (Cross-Site Request Forgery) ke dalam form HTML. Token keamanan CSRF tersebut bertujuan untuk mencegah serangan CSRF: jenis serangan web dalam bentuk manipulasi tindakan pengguna terautentikasi tanpa sepengetahuan atau persetujuannya.
 Django akan menolak permintaan POST yang dikirimkan oleh pengguna apabila form tidak terdapat {% csrf_token %}. Alasannya, pada setiap permintaan POST yang diterima, eksistensi token CSRF akan diperiksa oleh Django, secara default. Django akan menganggap permintaan tersebut tidak valid dan menolak untuk memprosesnya, apabila token tidak ada atau tidak cocok.
 
-//Apakah kita dapat membuat elemen form secara manual (tanpa menggunakan generator seperti {{ form.as_table }})? Jelaskan secara gambaran besar bagaimana cara membuat form secara manual.
+### Apakah kita dapat membuat elemen form secara manual (tanpa menggunakan generator seperti {{ form.as_table }})? Jelaskan secara gambaran besar bagaimana cara membuat form secara manual.
 Kita dapat membuat elemen form secara manual. Caranya, kita perlu membuat sebuah class form di dalam file forms.py, mengatur field-field dan argumen-argumen untuk setiap field, mengimport form tersebut ke dalam view, dan menampilkan form di dalam template dengan tag-tag yang sesuai.
 
-//Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
+### Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
 1. Pengguna mengisi HTML form yang telah disediakan oleh website, dan menekan tombol submit.
 2. Browser mengirimkan data form tersebut ke server melalui HTTP POST request.
 3. Server menerima request tersebut dan menjalankan view yang telah diatur untuk form tersebut.
@@ -109,7 +109,7 @@ Kita dapat membuat elemen form secara manual. Caranya, kita perlu membuat sebuah
 6. Setelah data berhasil disimpan ke dalam database, view akan meredirect pengguna ke halaman sukses atau menampilkan data yang telah disimpan pada halaman yang sesuai.
 7. Pada halaman yang sesuai, view akan menampilkan data yang telah disimpan pada template HTML dengan menggunakan tag-tag yang sesuai seperti `{% for %}` atau `{{ }}`.
 
-//Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 1. Membuka study_tracker/views.py
 2. Menambahkan import redirect, UserCreationForm, dan messages
 3. Membuat fungsi bernama register yang menerima parameter request, yang berisi kode untuk menghasilkan formulir registrasi secara otomatis {{ UserCreationForm(request.POST) }} dan menghasilkan akun pengguna ketika data di-submit dari form {{ form.save() }}
@@ -140,11 +140,11 @@ Kita dapat membuat elemen form secara manual. Caranya, kita perlu membuat sebuah
 
 
 ## TUGAS 3:
-//Apakah kita dapat menginput data selain melalui form? Namun mengapa form dapat dikatakan lebih baik daripada menggunakan cara tersebut?
+### Apakah kita dapat menginput data selain melalui form? Namun mengapa form dapat dikatakan lebih baik daripada menggunakan cara tersebut?
 
 Ya, kita dapat menginput data selain melalui form, seperti menggunakan django built-in shell atau django admin. Namun, menggunakan form dapat dikatakan lebih baik daripada cara lainnya karena form dapat digunakan untuk menentukan aturan validasi untuk setiap fields, memastikan bahwa data yang dimasukkan oleh pengguna valid sebelum disimpan ke database. Hal ini dapat membantu mencegah kesalahan dan meningkatkan kualitas data secara keseluruhan. Selain itu, form juga dapat dikustomisasi untuk memenuhi persyaratan tertentu dan dapat diperluas untuk menyertakan fungsionalitas tambahan seperti aturan validasi kustom, widget, dan input masks.
 
-//Jelaskan perbedaan antara JSON, XML, dan HTML!
+### Jelaskan perbedaan antara JSON, XML, dan HTML!
 
 - JSON adalah format pertukaran data yang ringan dan sepenuhnya language-independent. JSON berbasis 
 JavaScipt dan mudah dimengerti dan di-generate. Format JSON mirip dengan maps pada Java.
@@ -155,7 +155,7 @@ JavaScipt dan mudah dimengerti dan di-generate. Format JSON mirip dengan maps pa
 
 source: https://www.geeksforgeeks.org/difference-between-json-and-xml/, https://www.geeksforgeeks.org/html-vs-xml/ 
 
-//Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform.
+### Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform.
 
 Pengiriman data adalah aspek penting dari implementasi platform karena beberapa alasan:
 1. Data delivery memastikan bahwa data tersedia saat dibutuhkan, dan pengguna dapat mengaksesnya dengan mudah dan efisien, terlepas dari lokasi atau perangkat yang mereka gunakan.
@@ -164,7 +164,7 @@ Pengiriman data adalah aspek penting dari implementasi platform karena beberapa 
 4. Data delivery dapat meningkatkan keamanan data dengan menyediakan protokol transfer dan penyimpanan data yang aman
 5. Data delivery dapat memastikan bahwa platform dapat menangani lalu lintas data yang semakin meningkat tanpa mengorbankan kinerja atau pengalaman pengguna.
 
-//Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 
 1. Menjalankan virtual environment
 2. Membuat file baru pada folder study_tracker dengan nama forms.py untuk membuat struktur form yang dapat menerima data transaksi baru.
@@ -189,8 +189,7 @@ Pengiriman data adalah aspek penting dari implementasi platform karena beberapa 
 
 
 # TUGAS 2:
-//Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya 
-dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html
+### Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html
 
 Alur request client ke web aplikasi berbasis django:
 1. Django menerima URL, memeriksa berkas urls.py, dan memanggil tampilan (views) 
@@ -203,7 +202,7 @@ Alur request client ke web aplikasi berbasis django:
 
 source: w3schools.com
 
-//Jelaskan kenapa menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web 
+### Jelaskan kenapa menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web 
 berbasis Django tanpa menggunakan virtual environment?
 
 Virtual Environment memungkinkan kita untuk memiliki lingkungan yang stabil, reproducible, 
@@ -221,7 +220,7 @@ versi paket instalasi yang terbaru.
 source: https://csguide.cs.princeton.edu/software/virtualenv#:~:text=Virtual%20environments%20let%20you%20have,many%20venvs%20as%20you%20want.
 , https://realpython.com/python-virtual-environments-a-primer/#why-do-you-need-virtual-environments 
 
-//Jelaskan bagaimana cara kamu mengimplementasikan poin 1 sampai dengan 4 di atas.
+### Jelaskan bagaimana cara kamu mengimplementasikan poin 1 sampai dengan 4 di atas.
 
 1. Menggunakan perintah "git clone" untuk menyalin repositorinya ke suatu lokasi 
     di dalam sistem berkas (filesystem) komputer.
