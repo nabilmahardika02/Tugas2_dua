@@ -11,7 +11,7 @@ Perbedaan antara asinkron dan sinkron meliputi:
 Pemrograman berbasis event atau event-driven programming adalah paradigma pemrograman di mana alur program ditentukan oleh kejadian atau aksi pengguna daripada oleh eksekusi kode secara berurutan. Dalam pemrograman berbasis event, program menunggu event terjadi. Saat event terjadi, program akan meresponsnya dengan mengeksekusi kode tertentu, seperti fungsi atau metode.
 Dalam JavaScript, pemrograman berbasis event sering digunakan dalam pengembangan web untuk menangani interaksi pengguna, seperti klik, gerakan mouse, dan penekanan tombol. Sementara itu, AJAX (Asynchronous JavaScript and XML) juga didasarkan pada pemrograman berbasis event. Dengan AJAX, halaman web dapat memperbarui konten tanpa harus memuat ulang seluruh halaman.
 
-Pada tugas ini, event-driven programming diterapkan pada fungsi ```$.get()``` dan ```$("submit_btn").click()```. Fungsi ```$get()``` dipanggil ketika halaman selesai dimuat dan akan dieksekusi saat AJAX berhasil mengambil data dari '/tracker/json'. Fungsi ```$("submit_btn").click()``` dipanggil ketika tombol "add" pada form modal ditekan dan akan dieksekusi ketika AJAX berhasil menambahkan data tugas baru ke /tracker/create-ajax/.
+Pada tugas ini, event-driven programming diterapkan pada fungsi ```$.get()``` dan ```$("submit_btn").click()```. Fungsi ```$get()``` dipanggil ketika halaman selesai dimuat dan akan dieksekusi saat AJAX berhasil mengambil data dari /tracker/json. Fungsi ```$("submit_btn").click()``` dipanggil ketika tombol "add" pada form modal ditekan dan akan dieksekusi ketika AJAX berhasil menambahkan data tugas baru ke /tracker/create-ajax/.
 
 ### Jelaskan penerapan asynchronous programming pada AJAX.
 Asynchronous programming dapat diterapkan pada AJAX dengan menggunakan teknik AJAX dengan menggunakan callback atau promise. Ini memungkinkan permintaan AJAX untuk dilakukan secara asinkron dan tidak akan menghalangi jalannya kode JavaScript lainnya saat menunggu balasan dari server. 
@@ -32,7 +32,7 @@ Callback adalah sebuah fungsi yang dieksekusi setelah permintaan AJAX selesai di
 11. Membuka tracker.html
 12. Membuat sebuah modal popup yang berfungsi untuk menambahkan transaksi baru pada laman tracker.
 13. Membuat fungsi AJAX yang memuat data dari /tracker/json/ dengan menggunakan metode ```$.get()``` dan menambahkan elemen HTML dengan menggunakan metode ```$.append()```. Fungsi tersebut juga mengatur event handler untuk tombol dengan id="submit_btn" yang mengirimkan data ke /tracker/create-ajax/ menggunakan metode ```$.post()```. Semua aksi tersebut dilakukan setelah dokumen HTML telah sepenuhnya dimuat.
-13. Menambahkan 'data-bs-dismiss="modal"' pada tombol dengan id='"submit_btn"' untuk menutup modal setelah penambahan task telah berhasil dilakukan.
+13. Menambahkan 'data-bs-dismiss="modal"' pada tombol dengan id="submit_btn" untuk menutup modal setelah penambahan task telah berhasil dilakukan.
 
 ## TUGAS 5
 ### Apa perbedaan dari inline, internal, dan external CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
