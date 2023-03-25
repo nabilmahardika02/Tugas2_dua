@@ -1,4 +1,37 @@
-TUGAS 5:
+## TUGAS 6:
+#### Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+Asynchronus programming merupakan sebuah arsitektur non-pemblokiran: satu tugas tidak bergantung pada tugas lainnya. Dengan kata lain, beberapa tugas dapat berjalan secara bersamaan. Synchronus programming merupakan sebuah arsitektur pemblokiran: pelaksanaan setiap operasi bergantung pada penyelesaian operasi sebelumnya. Dengan kata lain, setiap tugas membutuhkan jawaban sebelum melanjutkan ke iterasi berikutnya.
+Perbedaan antara asinkron dan sinkron meliputi:
+
+- Asynchronus programming adalah multi-utas, yang berarti operasi atau program dapat berjalan secara paralel. Synchronus Programming adalah utas tunggal, jadi hanya satu operasi atau program yang akan berjalan dalam satu waktu.
+- Asynchronus programming tidak memblokir, yang artinya program akan mengirim banyak permintaan ke server. Synchronus programming memblokir — hanya akan mengirimkan satu permintaan ke server dalam satu waktu dan akan menunggu permintaan tersebut dijawab oleh server.
+- Asynchronus programming meningkatkan completed operations karena beberapa operasi dapat dijalankan secara bersamaan. Synchronus Programming berjalan lebih lambat dan lebih metodis.
+
+#### Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Pemrograman berbasis event atau event-driven programming adalah paradigma pemrograman di mana alur program ditentukan oleh kejadian atau aksi pengguna daripada oleh eksekusi kode secara berurutan. Dalam pemrograman berbasis event, program menunggu event terjadi. Saat event terjadi, program akan meresponsnya dengan mengeksekusi kode tertentu, seperti fungsi atau metode.
+Dalam JavaScript, pemrograman berbasis event sering digunakan dalam pengembangan web untuk menangani interaksi pengguna, seperti klik, gerakan mouse, dan penekanan tombol. Sementara itu, AJAX (Asynchronous JavaScript and XML) juga didasarkan pada pemrograman berbasis event. Dengan AJAX, halaman web dapat memperbarui konten tanpa harus memuat ulang seluruh halaman.
+Pada tugas ini, event-driven programming diterapkan pada fungsi $.get() dan $("submit_btn").click(). Fungsi $get() dipanggil ketika halaman selesai dimuat dan akan dieksekusi saat AJAX berhasil mengambil data dari '/tracker/json'. $("submit_btn").click() ketika tombol "add" pada form modal ditekan dan akan dieksekusi ketika AJAX berhasil menambahkan data tugas baru ke /tracker/create-ajax/.
+
+#### Jelaskan penerapan asynchronous programming pada AJAX.
+Asynchronous programming dapat diterapkan pada AJAX dengan menggunakan teknik AJAX dengan menggunakan callback atau promise. Ini memungkinkan permintaan AJAX untuk dilakukan secara asinkron dan tidak akan menghalangi jalannya kode JavaScript lainnya saat menunggu balasan dari server. Callback adalah sebuah fungsi yang dieksekusi setelah permintaan AJAX selesai dilakukan. Callback biasanya ditentukan sebagai parameter terakhir dalam fungsi XMLHttpRequest. Sedangkan promise adalah objek JavaScript yang merepresentasikan nilai yang belum tersedia pada saat pembuatan promise. Promise akan terpenuhi ketika operasi yang dilakukan asinkron berhasil, dan ditolak ketika operasi tersebut gagal. Keduanya memungkinkan kode JavaScript untuk menjalankan tugas lain saat permintaan AJAX sedang diproses, sehingga membuat aplikasi web lebih responsif dan cepat.
+
+#### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+1. Membuka study_tracker/views.py
+2. Meng-import Jsonresponse dan csrf_exempt
+3. Membuat fungsi baru dengan nama create_assignment_ajax yang menerima parameter request
+4. Di atas baris fungsi, menambahkan csrf_exempt untuk memberitahu view bahwa fungsi tersebut tidak membutuhkan token
+5. Menambahkan potongan kode pada fungsi untuk menghasilkan formulir yang dapat menambahkan data transaksi secara otomatis ketika data di-submit dari form
+6. Membuka study_tracker/urls.py
+7. Meng-import fungsi yang telah dibuat sebelumnya
+8. Menambahkan path fungsi tersebut pada urlpatterns
+9. Membuka base.html
+10. Memuat AJAX dengan menyematkan "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js -> hosted library
+11. Membuka tracker.html
+12. Membuat sebuah modal popup yang berfungsi untuk menambahkan transaksi baru pada laman tracker.
+13. Membuat fungsi AJAX yang memuat data dari /tracker/json/ dengan menggunakan metode $.get() dan menambahkan elemen HTML dengan menggunakan metode .append(). Fungsi tersebut juga mengatur event handler untuk tombol dengan id="submit_btn" yang mengirimkan data ke /tracker/create-ajax/ menggunakan metode $.post(). Semua aksi tersebut dilakukan setelah dokumen HTML telah sepenuhnya dimuat.
+13. Menambahkan 'data-bs-dismiss="modal"' pada tombol dengan id='"submit_btn"' untuk menutup modal setelah penambahan task telah berhasil dilakukan.
+
+## TUGAS 5:
 //Apa perbedaan dari inline, internal, dan external CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
 1. Inline CSS adalah gaya CSS yang didefinisikan langsung pada elemen HTML menggunakan atribut style.
 Kelebihan:
@@ -59,7 +92,7 @@ Kekurangan:
 20. Melalukan routing fungsi baru pada urls.py
 21. Menambahkan "script" dan kode js ajax pada tracker.html untuk menampilkan data dalam bentuk cards dan menampilkan modal tambah transaksi
 
-TUGAS 4:
+## TUGAS 4:
 //Apa kegunaan {% csrf_token %} pada elemen form? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen form?
 Pada elemen form, {% csrf_token %} berfungsi untuk membuat dan meng-input token keamanan  CSRF (Cross-Site Request Forgery) ke dalam form HTML. Token keamanan CSRF tersebut bertujuan untuk mencegah serangan CSRF: jenis serangan web dalam bentuk manipulasi tindakan pengguna terautentikasi tanpa sepengetahuan atau persetujuannya.
 Django akan menolak permintaan POST yang dikirimkan oleh pengguna apabila form tidak terdapat {% csrf_token %}. Alasannya, pada setiap permintaan POST yang diterima, eksistensi token CSRF akan diperiksa oleh Django, secara default. Django akan menganggap permintaan tersebut tidak valid dan menolak untuk memprosesnya, apabila token tidak ada atau tidak cocok.
@@ -106,7 +139,7 @@ Kita dapat membuat elemen form secara manual. Caranya, kita perlu membuat sebuah
 24. Menambahkan kode {{ @login_required(login_url='/money_tracker/login/') }} di atas fungsi show_tracker agar halaman money tracker hanya dapat diakses oleh pengguna yang sudah login (terautentikasi).
 
 
-TUGAS 3:
+## TUGAS 3:
 //Apakah kita dapat menginput data selain melalui form? Namun mengapa form dapat dikatakan lebih baik daripada menggunakan cara tersebut?
 
 Ya, kita dapat menginput data selain melalui form, seperti menggunakan django built-in shell atau django admin. Namun, menggunakan form dapat dikatakan lebih baik daripada cara lainnya karena form dapat digunakan untuk menentukan aturan validasi untuk setiap fields, memastikan bahwa data yang dimasukkan oleh pengguna valid sebelum disimpan ke database. Hal ini dapat membantu mencegah kesalahan dan meningkatkan kualitas data secara keseluruhan. Selain itu, form juga dapat dikustomisasi untuk memenuhi persyaratan tertentu dan dapat diperluas untuk menyertakan fungsionalitas tambahan seperti aturan validasi kustom, widget, dan input masks.
@@ -155,7 +188,7 @@ Pengiriman data adalah aspek penting dari implementasi platform karena beberapa 
 18. Menambahkan path url ke dalam urlpatterns untuk mengakses dua fungsi yang sudah diimpor sebelumnya.
 
 
-TUGAS 2:
+# TUGAS 2:
 //Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya 
 dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html
 

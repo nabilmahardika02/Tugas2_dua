@@ -40,8 +40,8 @@
       $("#submit_btn").click(function(){
           $.post("/tracker/create-ajax/", {
               name: $("#name").val(),
-              type: $("#type").val(),
-              amount: $("#amount").val(),
+              subject: $("#subject").val(),
+              progress: $("#progress").val(),
               description: $("#description").val()
           },
           function(result, status){
@@ -56,8 +56,8 @@
                               <p class="card-text">${result.progress}</p>
                               <p class="card-text">${result.description}</p>
                               <div class="mt-auto">
-                                  <a href="/tracker/delete/${result.id}" class="btn btn-primary delete mb-2">Hapus</a>
-                                  <a href="/tracker/modify/${result.id}" class="btn btn-secondary mb-2">Ubah</a>
+                                <a href="/tracker/modify/${result.id}" class="btn btn-light mb-2">Edit</a>
+                                <a href="/tracker/delete/${result.id}" class="btn btn-light delete mb-2">Delete</a>
                               </div>
                           </div>
                       </div>
@@ -65,12 +65,14 @@
                   `);
               $('#name').val('')
               $('#date').val('')
-              $('#amount').val('')
+              $('#progress').val('')
               $('#description').val('')
               }
           })
       })
   })
+
+  
 </script>
 
 <nav class="navbar navbar-expand-lg navbar bg-light">
