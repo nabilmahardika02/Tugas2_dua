@@ -1,4 +1,4 @@
-## TUGAS 6:
+## TUGAS 6
 ### Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
 Asynchronus programming merupakan sebuah arsitektur non-pemblokiran: satu tugas tidak bergantung pada tugas lainnya. Dengan kata lain, beberapa tugas dapat berjalan secara bersamaan. Synchronus programming merupakan sebuah arsitektur pemblokiran: pelaksanaan setiap operasi bergantung pada penyelesaian operasi sebelumnya. Dengan kata lain, setiap tugas membutuhkan jawaban sebelum melanjutkan ke iterasi berikutnya.
 Perbedaan antara asinkron dan sinkron meliputi:
@@ -10,10 +10,13 @@ Perbedaan antara asinkron dan sinkron meliputi:
 ### Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
 Pemrograman berbasis event atau event-driven programming adalah paradigma pemrograman di mana alur program ditentukan oleh kejadian atau aksi pengguna daripada oleh eksekusi kode secara berurutan. Dalam pemrograman berbasis event, program menunggu event terjadi. Saat event terjadi, program akan meresponsnya dengan mengeksekusi kode tertentu, seperti fungsi atau metode.
 Dalam JavaScript, pemrograman berbasis event sering digunakan dalam pengembangan web untuk menangani interaksi pengguna, seperti klik, gerakan mouse, dan penekanan tombol. Sementara itu, AJAX (Asynchronous JavaScript and XML) juga didasarkan pada pemrograman berbasis event. Dengan AJAX, halaman web dapat memperbarui konten tanpa harus memuat ulang seluruh halaman.
-Pada tugas ini, event-driven programming diterapkan pada fungsi ```$.get()``` dan ```$("submit_btn").click()```. Fungsi "$get()" dipanggil ketika halaman selesai dimuat dan akan dieksekusi saat AJAX berhasil mengambil data dari '/tracker/json'. Fungsi "$("submit_btn").click()" dipanggil ketika tombol "add" pada form modal ditekan dan akan dieksekusi ketika AJAX berhasil menambahkan data tugas baru ke /tracker/create-ajax/.
+
+Pada tugas ini, event-driven programming diterapkan pada fungsi ```$.get()``` dan ```$("submit_btn").click()```. Fungsi ```$get()``` dipanggil ketika halaman selesai dimuat dan akan dieksekusi saat AJAX berhasil mengambil data dari '/tracker/json'. Fungsi ```$("submit_btn").click()``` dipanggil ketika tombol "add" pada form modal ditekan dan akan dieksekusi ketika AJAX berhasil menambahkan data tugas baru ke /tracker/create-ajax/.
 
 ### Jelaskan penerapan asynchronous programming pada AJAX.
-Asynchronous programming dapat diterapkan pada AJAX dengan menggunakan teknik AJAX dengan menggunakan callback atau promise. Ini memungkinkan permintaan AJAX untuk dilakukan secara asinkron dan tidak akan menghalangi jalannya kode JavaScript lainnya saat menunggu balasan dari server. Callback adalah sebuah fungsi yang dieksekusi setelah permintaan AJAX selesai dilakukan. Callback biasanya ditentukan sebagai parameter terakhir dalam fungsi XMLHttpRequest. Sedangkan promise adalah objek JavaScript yang merepresentasikan nilai yang belum tersedia pada saat pembuatan promise. Promise akan terpenuhi ketika operasi yang dilakukan asinkron berhasil, dan ditolak ketika operasi tersebut gagal. Keduanya memungkinkan kode JavaScript untuk menjalankan tugas lain saat permintaan AJAX sedang diproses, sehingga membuat aplikasi web lebih responsif dan cepat.
+Asynchronous programming dapat diterapkan pada AJAX dengan menggunakan teknik AJAX dengan menggunakan callback atau promise. Ini memungkinkan permintaan AJAX untuk dilakukan secara asinkron dan tidak akan menghalangi jalannya kode JavaScript lainnya saat menunggu balasan dari server. 
+
+Callback adalah sebuah fungsi yang dieksekusi setelah permintaan AJAX selesai dilakukan. Callback biasanya ditentukan sebagai parameter terakhir dalam fungsi XMLHttpRequest. Sedangkan promise adalah objek JavaScript yang merepresentasikan nilai yang belum tersedia pada saat pembuatan promise. Promise akan terpenuhi ketika operasi yang dilakukan asinkron berhasil, dan ditolak ketika operasi tersebut gagal. Keduanya memungkinkan kode JavaScript untuk menjalankan tugas lain saat permintaan AJAX sedang diproses, sehingga membuat aplikasi web lebih responsif dan cepat.
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 1. Membuka study_tracker/views.py
@@ -28,36 +31,36 @@ Asynchronous programming dapat diterapkan pada AJAX dengan menggunakan teknik AJ
 10. Memuat AJAX dengan menyematkan "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js -> hosted library
 11. Membuka tracker.html
 12. Membuat sebuah modal popup yang berfungsi untuk menambahkan transaksi baru pada laman tracker.
-13. Membuat fungsi AJAX yang memuat data dari /tracker/json/ dengan menggunakan metode $.get() dan menambahkan elemen HTML dengan menggunakan metode .append(). Fungsi tersebut juga mengatur event handler untuk tombol dengan id="submit_btn" yang mengirimkan data ke /tracker/create-ajax/ menggunakan metode $.post(). Semua aksi tersebut dilakukan setelah dokumen HTML telah sepenuhnya dimuat.
+13. Membuat fungsi AJAX yang memuat data dari /tracker/json/ dengan menggunakan metode ```$.get()``` dan menambahkan elemen HTML dengan menggunakan metode ```$.append()```. Fungsi tersebut juga mengatur event handler untuk tombol dengan id="submit_btn" yang mengirimkan data ke /tracker/create-ajax/ menggunakan metode ```$.post()```. Semua aksi tersebut dilakukan setelah dokumen HTML telah sepenuhnya dimuat.
 13. Menambahkan 'data-bs-dismiss="modal"' pada tombol dengan id='"submit_btn"' untuk menutup modal setelah penambahan task telah berhasil dilakukan.
 
-## TUGAS 5:
+## TUGAS 5
 ### Apa perbedaan dari inline, internal, dan external CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
 1. Inline CSS adalah gaya CSS yang didefinisikan langsung pada elemen HTML menggunakan atribut style.
-Kelebihan:
+<br> Kelebihan:
 - Mudah diimplementasikan dan dapat diubah secara langsung pada elemen HTML yang bersangkutan.
 - Sangat efisien jika hanya ada satu atau dua elemen yang perlu diubah gayanya.
-Kekurangan:
+<br> Kekurangan:
 - Tidak efisien untuk digunakan pada banyak elemen, karena kode inline akan meningkatkan ukuran file HTML dan membuat kode HTML terlihat lebih berantakan.
 
 2. Internal CSS adalah gaya CSS yang didefinisikan pada tag head halaman web menggunakan tag <style>.
-Kelebihan:
+<br> Kelebihan:
 - Mudah diimplementasikan dan dikelola dalam satu halaman web.
 - Dapat digunakan pada beberapa elemen pada halaman web.
-Kekurangan:
+<br> Kekurangan:
 - Tidak efisien jika digunakan pada banyak halaman web, karena kode CSS harus didefinisikan di setiap halaman web secara manual.
 
 3. External CSS adalah gaya CSS yang didefinisikan dalam file terpisah dan dihubungkan dengan halaman web menggunakan tag <link>.
-Kelebihan: 
+<br> Kelebihan: 
 - Efisien untuk digunakan pada banyak halaman web, karena kode CSS hanya perlu didefinisikan sekali dan dapat digunakan pada semua halaman web.
 - Mudah dikelola dan dapat diubah dengan mudah.
-Kekurangan:
+<br> Kekurangan:
 - Memerlukan waktu lebih lama untuk memuat file CSS eksternal, terutama jika file tersebut besar.
 
 ### Jelaskan tag HTML5 yang kamu ketahui.
-1. <input> merupakan tag yang menentukan bidang input tempat pengguna dapat memasukkan data.
-2. <br> merupakan tag yang menyisipkan satu jeda baris.
-3. <div> merupakan tag yang mendefinisikan divisi atau bagian dalam dokumen HTML.
+1. `<input>` merupakan tag yang menentukan bidang input tempat pengguna dapat memasukkan data.
+2. `<br>` merupakan tag yang menyisipkan satu jeda baris.
+3. `<div>` merupakan tag yang mendefinisikan divisi atau bagian dalam dokumen HTML.
 
 ### Jelaskan tipe-tipe CSS selector yang kamu ketahui.
 1. Element Selector, yakni selector yang memilih elemen HTML berdasarkan nama tag-nya (elemen).
@@ -75,8 +78,8 @@ Kekurangan:
 7. Mengimplementasikan selector "margin-top" pada tiap <td>
 8. Membuat inline CSS dengan class selector "btn" untuk mengatur panjang tombol
 9. Mengimplementasikan selector "btn" pada button
-- Halaman Register: Kurang lebih sama dengan halaman login
-- Halaman Add: 
+- Halaman Register: kurang lebih sama dengan halaman login
+- Halaman Add
 10. Menambahkan navbar yang sama dengan halaman tracker
 11. Membuat divisi dengan kelas "container-fluid" dan memasukkan elemen-lemen input
 11. Membuat inline CSS dengan class selector "navbar-brand" untuk mengatur letak navbar brand persis di tengah dan mengimplementasikannya
@@ -92,12 +95,12 @@ Kekurangan:
 20. Melalukan routing fungsi baru pada urls.py
 21. Menambahkan "script" dan kode js ajax pada tracker.html untuk menampilkan data dalam bentuk cards dan menampilkan modal tambah transaksi
 
-## TUGAS 4:
-### Apa kegunaan {% csrf_token %} pada elemen form? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen form?
-Pada elemen form, {% csrf_token %} berfungsi untuk membuat dan meng-input token keamanan  CSRF (Cross-Site Request Forgery) ke dalam form HTML. Token keamanan CSRF tersebut bertujuan untuk mencegah serangan CSRF: jenis serangan web dalam bentuk manipulasi tindakan pengguna terautentikasi tanpa sepengetahuan atau persetujuannya.
-Django akan menolak permintaan POST yang dikirimkan oleh pengguna apabila form tidak terdapat {% csrf_token %}. Alasannya, pada setiap permintaan POST yang diterima, eksistensi token CSRF akan diperiksa oleh Django, secara default. Django akan menganggap permintaan tersebut tidak valid dan menolak untuk memprosesnya, apabila token tidak ada atau tidak cocok.
+## TUGAS 4
+### Apa kegunaan `{% csrf_token %}` pada elemen form? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen form?
+Pada elemen form, `{% csrf_token %}` berfungsi untuk membuat dan meng-input token keamanan  CSRF (Cross-Site Request Forgery) ke dalam form HTML. Token keamanan CSRF tersebut bertujuan untuk mencegah serangan CSRF: jenis serangan web dalam bentuk manipulasi tindakan pengguna terautentikasi tanpa sepengetahuan atau persetujuannya.
+Django akan menolak permintaan POST yang dikirimkan oleh pengguna apabila form tidak terdapat `{% csrf_token %}`. Alasannya, pada setiap permintaan POST yang diterima, eksistensi token CSRF akan diperiksa oleh Django, secara default. Django akan menganggap permintaan tersebut tidak valid dan menolak untuk memprosesnya, apabila token tidak ada atau tidak cocok.
 
-### Apakah kita dapat membuat elemen form secara manual (tanpa menggunakan generator seperti {{ form.as_table }})? Jelaskan secara gambaran besar bagaimana cara membuat form secara manual.
+### Apakah kita dapat membuat elemen form secara manual (tanpa menggunakan generator seperti `{{ form.as_table }}`)? Jelaskan secara gambaran besar bagaimana cara membuat form secara manual.
 Kita dapat membuat elemen form secara manual. Caranya, kita perlu membuat sebuah class form di dalam file forms.py, mengatur field-field dan argumen-argumen untuk setiap field, mengimport form tersebut ke dalam view, dan menampilkan form di dalam template dengan tag-tag yang sesuai.
 
 ### Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
@@ -112,9 +115,9 @@ Kita dapat membuat elemen form secara manual. Caranya, kita perlu membuat sebuah
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 1. Membuka study_tracker/views.py
 2. Menambahkan import redirect, UserCreationForm, dan messages
-3. Membuat fungsi bernama register yang menerima parameter request, yang berisi kode untuk menghasilkan formulir registrasi secara otomatis {{ UserCreationForm(request.POST) }} dan menghasilkan akun pengguna ketika data di-submit dari form {{ form.save() }}
+3. Membuat fungsi bernama register yang menerima parameter request, yang berisi kode untuk menghasilkan formulir registrasi secara otomatis (`UserCreationForm(request.POST)`) dan menghasilkan akun pengguna ketika data di-submit dari form (`form.save()`)
 4. Membuat file register.html pada folder study_tracker/templates untuk membuat halaman register
-5. Membuat form dengan generator {{ form.as_table }}
+5. Membuat form dengan generator `{{ form.as_table }}`
 6. Membuka study_tracker/urls.py
 7. Mengimpor fungsi register dan menambahkan path-nya pada urls.py
 
@@ -124,7 +127,7 @@ Kita dapat membuat elemen form secara manual. Caranya, kita perlu membuat sebuah
 11. Membuat file login.html pada folder study_tracker/templates untuk membuat halaman login
 12. Membuka study_tracker/urls.py
 13. Mengimpor fungsi login_user dan menambahkan path-nya pada urls.py
-14. Memoodifikasi variable name pada context dalam fungsi show_tracker yang berada pada study_tracker/views.py menjadi {{'name': request.user.username}} agar dapat menampilkan nama sesuai pengguna yang logged in.
+14. Memoodifikasi variable name pada context dalam fungsi show_tracker yang berada pada study_tracker/views.py menjadi `'name': request.user.username` agar dapat menampilkan nama sesuai pengguna yang logged in.
 
 15. Membuka study_tracker/views.py
 16. Menambahkan import logout
@@ -136,10 +139,10 @@ Kita dapat membuat elemen form secara manual. Caranya, kita perlu membuat sebuah
 
 22. Membuka study_tracker/views.py
 23. Menambahkan import login_required
-24. Menambahkan kode {{ @login_required(login_url='/money_tracker/login/') }} di atas fungsi show_tracker agar halaman money tracker hanya dapat diakses oleh pengguna yang sudah login (terautentikasi).
+24. Menambahkan kode `@login_required(login_url='/money_tracker/login/')` di atas fungsi show_tracker agar halaman money tracker hanya dapat diakses oleh pengguna yang sudah login (terautentikasi).
 
 
-## TUGAS 3:
+## TUGAS 3
 ### Apakah kita dapat menginput data selain melalui form? Namun mengapa form dapat dikatakan lebih baik daripada menggunakan cara tersebut?
 
 Ya, kita dapat menginput data selain melalui form, seperti menggunakan django built-in shell atau django admin. Namun, menggunakan form dapat dikatakan lebih baik daripada cara lainnya karena form dapat digunakan untuk menentukan aturan validasi untuk setiap fields, memastikan bahwa data yang dimasukkan oleh pengguna valid sebelum disimpan ke database. Hal ini dapat membantu mencegah kesalahan dan meningkatkan kualitas data secara keseluruhan. Selain itu, form juga dapat dikustomisasi untuk memenuhi persyaratan tertentu dan dapat diperluas untuk menyertakan fungsionalitas tambahan seperti aturan validasi kustom, widget, dan input masks.
@@ -188,7 +191,7 @@ Pengiriman data adalah aspek penting dari implementasi platform karena beberapa 
 18. Menambahkan path url ke dalam urlpatterns untuk mengakses dua fungsi yang sudah diimpor sebelumnya.
 
 
-# TUGAS 2:
+# TUGAS 2
 ### Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html
 
 Alur request client ke web aplikasi berbasis django:
@@ -222,29 +225,28 @@ source: https://csguide.cs.princeton.edu/software/virtualenv#:~:text=Virtual%20e
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan poin 1 sampai dengan 4 di atas.
 
-1. Menggunakan perintah "git clone" untuk menyalin repositorinya ke suatu lokasi 
-    di dalam sistem berkas (filesystem) komputer.
+1. Menggunakan perintah `git clone` untuk menyalin repositorinya ke suatu lokasi 
+di dalam sistem berkas (filesystem) komputer.
 2. Masuk ke dalam repositori yang sudah di-clone.
 3. Menyalakan virtual environment.
 4. Menginstal dependencies yang dibutuhkan untuk menjalankan aplikasi.
-5. Membuat sebuah django-app bernama study_tracker dengan menggunakan perintah "manage.py 
-    startapp study_tracker".
+5. Membuat sebuah django-app bernama study_tracker dengan menggunakan perintah `manage.py startapp study_tracker`.
 6. Melakukan routing pada django_project: membuka settings.py, lalu menambahkan aplikasi 
 study_traker ke dalam variabel INSTALLED_APPS, agar dapat menjalankan aplikasi study_tracker.
 7. Membuat model (models.py) pada aplikasi study_tracker yang bernama Assignment 
 yang memiliki atribut:
-    - name untuk nama tugas dengan tipe CharField,
-    - subject untuk mata kuliah tugas dengan tipe CharField,
-    - date untuk tenggat waktu tugas dengan tipe DateTimeField,
-    - progress untuk indikator progress tugas dengan tipe IntegerField, dan
-    - description untuk deskripsi tugas dengan tipe TextField.
-8. Melakukan perintah "manage.py makemigrations" untuk mempersiapkan migrasi skema model 
-    ke dalam database Django lokal.
-9. Menjalankan perintah "manage.py migrate" untuk menerapkan skema model 
-    yang telah dibuat ke dalam database Django lokal.
+- name untuk nama tugas dengan tipe CharField,
+- subject untuk mata kuliah tugas dengan tipe CharField,
+- date untuk tenggat waktu tugas dengan tipe DateTimeField,
+- progress untuk indikator progress tugas dengan tipe IntegerField, dan
+- description untuk deskripsi tugas dengan tipe TextField.
+8. Melakukan perintah `manage.py makemigrations` untuk mempersiapkan migrasi skema model 
+ke dalam database Django lokal.
+9. Menjalankan perintah `manage.py migrate` untuk menerapkan skema model 
+yang telah dibuat ke dalam database Django lokal.
 10. Membuat folder templates pada root folder dan membuat sebuah file baru bernama base.html. 
-[file base.html telah terdeteksi sebagai file tempat pada django_project/settings.py]
+> file base.html telah terdeteksi sebagai file tempat pada django_project/settings.py
 11. Membuka views.py yang ada pada folder study_tracker dan membuat sebuah fungsi 
-    yang menerima parameter request dan mengembalikan render(request, "tracker.html").
+yang menerima parameter request dan mengembalikan  `render(request, "tracker.html")`.
 12. Membuat sebuah folder bernama templates di dalam folder aplikasi study_tracker dan 
-    membuat sebuah berkas bernama tracker.html
+membuat sebuah berkas bernama tracker.html
