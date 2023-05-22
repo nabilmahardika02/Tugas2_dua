@@ -10,6 +10,7 @@ from study_tracker.views import logout_user
 from study_tracker.views import modify_assignment
 from study_tracker.views import delete_assignment
 from study_tracker.views import create_assignment_ajax
+from study_tracker.views import create_assignment_flutter
 
 
 
@@ -29,6 +30,8 @@ urlpatterns = [
     path('modify/<int:id>', modify_assignment, name='modify_assignment'), #sesuaikan dengan nama fungsi yang dibuat
     path('delete/<int:id>', delete_assignment, name='delete_assignment'), #sesuaikan dengan nama fungsi yang dibuat
     path('create-ajax/', create_assignment_ajax, name='create_assignment_ajax'),
+    path('create-flutter/', create_assignment_flutter, name='create_assignment_flutter'),
+
 
 
 

@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from study_tracker.models import Assignment
 from django.http import HttpResponseRedirect
@@ -137,11 +138,31 @@ def modify_assignment(request, id):
 
 def delete_assignment(request, id):
     # Get data berdasarkan ID
-    transaction = Assignment.objects.get(pk = id)
+    assignment = Assignment.objects.get(pk = id)
     # Hapus data
-    transaction.delete()
+    assignment.delete()
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('study_tracker:show_tracker'))
+
+@csrf_exempt
+def create_assignment_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+
+        new_assignment = Assignment.objects.create(
+            name = data["name"],
+            subject = data["subject"],
+            progress = int(data["progress"]),
+            description = data["description"]
+        )
+
+        new_assignment.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+
 
 
 
